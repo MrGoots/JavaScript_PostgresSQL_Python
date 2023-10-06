@@ -2,15 +2,15 @@
 
 ## Subject:
 * Data Analytics Industry/Job Market (domestic)
-    Bootcamp students looking for employment
-        skills per industry/fields
-        level of skills/future proofing job security
-        compensation/salary range
-        experience/qualifications
-        demographics/generational/gender
-        geography/locations
+    ### Bootcamp students looking for employment
+        Skills per industry/fields
+        Level of skills/future proofing job security
+        Compensation/salary range
+        Experience/qualifications
+        Demographics/generational/gender
+        Geography/locations
 
-## Methods:
+### Methods:
 * A combination of web/SQL scraping and Leaflet or Plotly
 
 ## Team:
