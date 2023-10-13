@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Project 3 Charts</title>
+    <link rel="stylesheet" type="text/css" href="../static/charts.css">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+​
+</head>
+<body>
+    <div class="background">
+        <div class="title">
+            <h1>Temperature Data</h1>
+        </div>
+        <br />
+        <br />
+        <div class="menu">
+            <ul data-anijs="if: mouseover, do: bounce animated">
+                <li> <a href="home.html">HOME</a></li>
+                <li> <a href="map.html">MAP</a></li>
+                <li> <a href="charts.html">CHARTS</a></li>
+                <li> <a href="sources.html">SOURCES</a></li>
+            </ul>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    <div class ="text1">
+        <p>The charts below display the daily average temperature, the average minimum, and the average maximum temperatures for five regional capitol cities in the United States: Sacramento, California; Juneau, Alaska; Honolulu, Hawaii; Topeka, Kansas; and Albany, New York. Dropdowns are provided to select each of the three plots, or all three for comparison purposes.</p>
+    </div>
+    </div>
+    </div>
+    <div id="map-id"></div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <select id="selAlbanyDataset">
+        <option value="avgDailyAvgTemp">Average Daily Average Temp</option>
+        <option value="avgDailyMaxTemp">Average Daily Max Temp</option>
+        <option value="avgDailyMinTemp">Average Daily Min Temp</option>
+        <option value="allAvg">All Averages</option>
+    </select>
+    <div id="albanyLine"></div>
+    <div class="albanytext">
+        <p>For Albany, New York, temperatures in the past decade have slightly decreased from the base year 2013, where the average temperature for the year was 53.4 ℉ and dropped to 50.9 ℉ in 2022. The average minimum temperature dropped significantly from 2013 to 2014, but then remained relatively stable at 40 ℉ through the rest of the decade. Average maximum temperature climbed in 2022 from 58 ℉ to almost 61 ℉.</p>
+    </div>
+    <br />
+    <select id="selHonoluluDataset">
+        <option value="avgDailyAvgTemp">Average Daily Average Temp</option>
+        <option value="avgDailyMaxTemp">Average Daily Max Temp</option>
+        <option value="avgDailyMinTemp">Average Daily Min Temp</option>
+        <option value="allAvg">All Averages</option>
+    </select>
+    <div id="honoluluLine"></div>
+    <div class="honolulutext">
+        <p>Of the five cities we examined, the one outlier was Honolulu, Hawaii. It was the only city that showed a warming trend over the course of the past decade. All our data sets showed a warming trend of a little less than 0.5 ℉. Average daily temperature rose from 77.98 ℉ to 78.38 ℉. Average maximum temperature rose from 84.28 ℉ to 84.73 ℉. And average minimum temperature rose from 71.22 ℉ to 71.51 ℉. All data showed a marked increase starting in 2016 through 2019. Average temperatures in that period rose a degree-and-a-half. Temperature began falling again in the last three years of the decade, but never reached their 2013 base year level.</p>
+    </div>
+    <br />
+    <select id="selJuneauDataset">
+        <option value="avgDailyAvgTemp">Average Daily Average Temp</option>
+        <option value="avgDailyMaxTemp">Average Daily Max Temp</option>
+        <option value="avgDailyMinTemp">Average Daily Min Temp</option>
+        <option value="allAvg">All Averages</option>
+    </select>
+    <div id="juneauLine"></div>
+    <div class="juneautext">
+        <p>One would presuppose that warming trends would be most evident in Alaska with its proximity to the North Pole, especially since the shrinkage of arctic ice is well-documented; however, the temperature data for the past decade is inconclusive. There is quite a bit of volatility over the past ten years, and the average daily temperature did rise from 2014 to 2015 by about a degree-and-a-half. It remained at that level through 2014 but then dropped over 3.5 ℉ in 2017. Despite the variability, the mean temperature for the decade remained relatively unchanged. Average minimum temperature in 2022 was less than a degree Fahrenheit lower than it was in 2013.</p>
+    </div>
+    <br />
+    <select id="selSacramentoDataset">
+        <option value="avgDailyAvgTemp">Average Daily Average Temp</option>
+        <option value="avgDailyMaxTemp">Average Daily Max Temp</option>
+        <option value="avgDailyMinTemp">Average Daily Min Temp</option>
+        <option value="allAvg">All Averages</option>
+    </select>
+    <div id="sacramentoLine"></div>
+    <div class="sacramentotext">
+        <p>Temperatures in Sacramento, California show a marked drop from 2013 to 2018, until they rise again to within a degree of the base year of 2013. In 2020, average temperature reached almost 64 ℉, but then fell again the next year. Both minimum and maximum average temperatures fell nearly 3 ℉ from the base year to 2022.</p>
+    </div>
+    <br />
+    <select id="selTopekaDataset">
+        <option value="avgDailyAvgTemp">Average Daily Average Temp</option>
+        <option value="avgDailyMaxTemp">Average Daily Max Temp</option>
+        <option value="avgDailyMinTemp">Average Daily Min Temp</option>
+        <option value="allAvg">All Averages</option>
+    </select>
+    <div id="topekaLine"></div>
+    <div class="topekatext">
+        <p>Like Juneau, Topeka shows more variability than the other cities, but over the course of the decade showed a drop of just over 2 ℉. Similar to Sacramento, there was a precipitous drop in the average temperature in the first year of data. Average temperature dropped in that year from almost 59 ℉ to just over 55 ℉. Minimum average temperature dropped from 47.5 ℉ to 44.2 ℉ over the course of the decade. The trend for the decade overall is one of cooling, but longer time spans will need to be analyzed to see if this is an anomaly or part of a longer-term trend.</p>
+    </div>
+
+    <script src="../static/data.js"></script>
+    <script src="../static/albanyPlot.js"></script>
+    <script src="../static/honoluluPlot.js"></script>
+    <script src="../static/juneauPlot.js"></script>
+    <script src="../static/sacramentoPlot.js"></script>
+    <script src="../static/topekaPlot.js"></script>
+    <script src="../static/config.js"></script>
+​
+​
+</body>
+</html>

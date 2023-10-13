@@ -1,0 +1,140 @@
+.background{
+  width: 100%;
+  background-image: url("./weather-wind.gif");
+  background-size:cover;
+  color: #fff;
+}
+
+.title{
+  text-align: center;
+  font-family: Baskerville;
+  color: #fff;
+  font-size: 60px;
+  padding: 1px;
+}
+
+.menu{
+  width: 600px;
+  height: 99px;
+  position: relative;
+  z-index: 10;
+  color: #fff;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+
+.text1{
+background-color: #000;
+background-image: (to right, #fffbd5, #b20a2c);
+ text-align: center;
+ font-family: sans-serif;
+ color: #fff;
+ font-size: 20px;
+ font-weight: bold;
+ padding: 1% 1% 3% 3%;
+}
+
+#selAlbanyDataset{
+  font-size: 13px;
+  font-weight: bold;
+  padding: 10px 8px 10px 14px;
+  background: #fff;
+  border: 3px solid #000;
+  border-radius: 6px;
+  position: relative;
+}
+
+.albanytext{
+  background-color: #000;
+  text-align:center;
+  font-family: Arial;
+  color: #fff;
+  font-size: 18px;
+  padding: 70px;
+}
+
+#selHonoluluDataset{
+  font-size: 13px;
+  font-weight: bold;
+  padding: 10px 8px 10px 14px;
+  background: #fff;
+  border: 3px solid #000;
+  border-radius: 6px;
+  position: relative;
+}
+
+.honolulutext{
+  background-color: #000;
+  text-align:center;
+  font-family: Arial;
+  color: #fff;
+  font-size: 18px;
+  padding: 70px;
+}
+
+
+#selJuneauDataset{
+  font-size: 13px;
+  font-weight: bold;
+  padding: 10px 8px 10px 14px;
+  background: #fff;
+  border: 3px solid #000;
+  border-radius: 6px;
+  position: relative;
+}
+
+
+.juneautext{
+  background-color: #000;
+  text-align:center;
+  font-family: Arial;
+  color: #fff;
+  font-size: 18px;
+  padding: 70px;
+
+}
+
+#selSacramentoDataset{
+  font-size: 13px;
+  font-weight: bold;
+  padding: 10px 8px 10px 14px;
+  background: #fff;
+  border: 3px solid #000;
+  border-radius: 6px;
+  position: relative;
+}
+
+.sacramentotext{
+  background-color: #000;
+  text-align:center;
+  font-family: Arial;
+  color: #fff;
+  font-size: 18px;
+  padding: 70px;
+}
+
+#selTopekaDataset{
+  font-size: 13px;
+  font-weight: bold;
+  padding: 10px 8px 10px 14px;
+  background: #fff;
+  border: 3px solid #000;
+  border-radius: 6px;
+  position: relative;
+}
+.topekatext{
+  background-color: #000;
+  text-align:center;
+  font-family: Arial;
+  color: #fff;
+  font-size: 18px;
+  padding: 70px;
+}
+a:visited{
+  color: #ffffff;
+}
+
+
+
+

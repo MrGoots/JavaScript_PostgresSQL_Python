@@ -1,0 +1,21 @@
+LCD Documentation from NOAA:
+https://www.ncei.noaa.gov/data/local-climatological-data/doc/LCD_documentation.pdf
+
+NOAA Climate Data:
+https://www.ncei.noaa.gov/cdo-web/
+
+AniJS:
+https://anijs.github.io/
+
+Leaflet:
+https://leafletjs.com/
+
+D3:
+https://d3js.org/
+
+IMAGE SOURCES:
+Home Page Background:
+https://wallpapers.com/wallpapers/burning-temperature-of-the-sun-b14hsxx2jppt7gua.html
+
+Charts Page Header:
+https://tenor.com/view/weather-wind-weather-forecast-gif-17384272

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        h1 {
+          text-align: center;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather Project 3 Homepage</title>
+    <link rel="stylesheet" type="text/css" href="../static/home.css">
+    <!-- AniCollection.css library -->
+    <link rel="stylesheet" href="../static/anicollection.css">
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Group 2</h2>
+                <ul class="names" data-anijs="if: mouseover, do: tada animated">
+                    <li>Vincent Passanisi</li>
+                    <li>Tuan Hoang</li>
+                    <li>David Dixon</li>
+                    <li>Yu-Hsi Chen</li>
+                    <li>Ates Ilkay</li>
+                    <li>Patricia Roa</li>
+                </ul>
+            </div>
+            <div class="menu">
+                <ul data-anijs="if: mouseover, do: bounce animated">
+                    <li> <a href="home.html">HOME</a></li>
+                    <li> <a href="map.html">MAP</a></li>
+                    <li> <a href="charts.html">CHARTS</a></li>
+                    <li> <a href="sources.html">SOURCES</a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <h1 class="title" data-anijs="if: mouseover, do: pulse animated">Tabulating Temperature</h1>
+                <p class="intro">This project is utilizing Local Climatological Data (LCD) from the National Climatological Data Center (NCDC) and the Open Weather API to gather extensive historical weather data for all 50 states in the US. We have focused on five cities from different regions in the United States: Sacramento, California; Juneau, Alaska; Honolulu, Hawaii; Topeka, Kansas; and Albany, New York. 
+                    <br>The daily temperatures for each of these cities was collected, cleaned, and grouped. The collected data was then charted and analyzed to understand the impact of global warming on current US weather patterns. 
+                    <br>The analysis includes trends in average minimum temperature, average maximum temperature, and the daily average temperature for the years 2013 to 2022. 
+                    <br>The results of this analysis will provide valuable insights for policymakers, climate scientists, and the general public on the effects of global warming on US weather. 
+                    <br>The project aims to not only identify trends and patterns in the data, but also to make informed predictions about future weather patterns and understand the role of global warming in shaping these patterns. 
+                    <br>By providing a comprehensive analysis of the effects of global warming on US weather, this project will contribute to a better understanding of the broader impacts of climate change. In addition, current weather information is included from all 50 state capitols for comparison purposes.
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="../static/anijs-min.js"></script>
+    </body>
+</html>
