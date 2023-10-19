@@ -115,6 +115,12 @@
             </div>
         </div>             
     </section>
+    <div class="well">
+        <h5>State:</h5>
+        <select id="selDataset" onchange="optionChanged(this.value)"></select>
+      </div>
+    <div id="stateBar"></div>
+    <script type="text/javascript" src="../js/stateData.js"></script>    
     <section>
         <div class="section container responsivegrid">
             <div class="parsys sectionpar">
@@ -147,12 +153,14 @@
             </div>
         </div>
     </section>
+
     <div id="map"></div>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
     crossorigin=""></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script type="text/javascript" src="../js/nationData.js"></script>            
+
     <section>
         <div class="section container responsivegrid">
             <div class="parsys sectionpar">

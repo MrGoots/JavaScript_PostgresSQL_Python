@@ -12,6 +12,22 @@ html {
   margin-left:auto;
 }
 
+#stateBar,
+body,
+html {
+  width: 85%;
+  margin-right:auto;
+  margin-left:auto;
+}
+
+.well,
+body,
+html {
+  width:85%;
+  margin-right:auto;
+  margin-left:auto;
+}
+
 
 .legend {
   padding: 6px 8px;
