@@ -113,7 +113,7 @@ function setSkillPlots(dataFull,platform = 'ALL') {
         xaxis: {
             automargin: true
           },
-        title: 'Top Skills (Up to 5)',
+        title: 'Top Skills',
         height: 500,
 
     };
