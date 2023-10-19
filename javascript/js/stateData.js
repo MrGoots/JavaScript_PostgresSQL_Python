@@ -16,14 +16,16 @@ function setDropDown() {
 
 function setPlots(dataFull,state='AK') {
 
+
     let x
     let y
     [x,y] = getStateInfo(dataFull,state='AK')
     console.log(x)
     data = [{
         x: x,
-        y: y,
+        y: Array(x.length).fill(0),
         type: 'bar'}];
+
     layout = {
         xaxis: {
             automargin: true
@@ -34,6 +36,14 @@ function setPlots(dataFull,state='AK') {
     };
     Plotly.newPlot("stateBar", data,layout);
 
+    data = [{
+        x: x,
+        y: y,
+        type: 'bar'}];
+    
+    layout = {autosize: true,yaxis: {range:[0,y[0]*1.25]} }
+
+    Plotly.animate("stateBar", { data: data,layout:layout }, { ...animationConfig });
 
     };
 
@@ -41,10 +51,18 @@ function setPlots(dataFull,state='AK') {
 function resetPlots(dataFull,state='AK') {
     // Reset bar chart
     let x
-    let y
+    let y 
     [x,y] = getStateInfo(dataFull,state)
-    Plotly.restyle("stateBar", 'x', [x]);
-    Plotly.restyle("stateBar", 'y',[y]);
+    trace1 = {
+        x: x,
+        y: y,
+        type: "bar"
+    };
+    console.log(y[0])
+    layout = {autosize: true,yaxis: {range:[0,y[0]*1.25]} }
+
+    let finalData = [trace1];
+    Plotly.animate("stateBar", { data: finalData,layout:layout }, { ...animationConfig });
 
 };
 
@@ -107,6 +125,30 @@ function getStateInfo(dataFull,state) {
     };
     
     return [x,y]
-}
+};
+  
+
+let animationConfig = {
+
+    frame: [
+
+      {duration: 1500},
+
+      {duration: 1500},
+
+    ],
+
+    transition: [
+
+      {duration: 800, easing: 'cubic-in'},
+
+      {duration: 800, easing: 'cubic-out'},
+
+    ],
+
+    mode: 'afterall'
+
+  }
+
 
 init()
