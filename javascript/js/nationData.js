@@ -6,16 +6,7 @@ let mapZoomLevel = 4.3;
 // createData(wageInfo)
 let path = '../../python/resources/json_datasets/wageInfo.json'
 fetch(path).then((response) => response.json()).then(function (data) {
-    // // console.log(data)
-    // d3.json(data).then(function (data) {
-    //     console.log(data)
-    //     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    //       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    //   });
-    
-    //     createData(data);
-      
-    //   });
+
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       });
