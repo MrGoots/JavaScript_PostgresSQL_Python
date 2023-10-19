@@ -59,7 +59,7 @@ function createMap(employment){
     legend.onAdd = function (map) {
   
         let div = L.DomUtil.create('div', 'legend');
-        div.innerHTML += '<i style="background: rgb(255,95,101)"></i>less than 65k><br>';
+        div.innerHTML += '<i style="background: rgb(255,95,101)"></i><65k<br>';
         div.innerHTML += '<i style="background: rgb(252,163,93)"></i>65k-70k<br>';
         div.innerHTML += '<i style="background: rgb(253,183,42)"></i>70k-75k<br>';
         div.innerHTML += '<i style="background: rgb(247,219,17)"></i>75k-80k<br>';
