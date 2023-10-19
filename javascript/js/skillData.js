@@ -142,7 +142,7 @@ function platformChanged() {
         let dropdownMenu = d3.select("#selPlatform");
         let platform = dropdownMenu.property("value");
         console.log(platform)
-        resetSkillPlots(data,platform)
+        resetSkillPlots2(data,platform)
 
 
     });
@@ -153,11 +153,9 @@ function init() {
     let path = '../../python/resources/json_datasets/gsearch.json'
     fetch(path).then((response) => response.json()).then(function (data) {
 
-
-
         setSkillDropDown(data);
         // console.log('dd')
-        setSkillPlots(data,'ALL')
+        setSkillPlots2(data,'ALL')
           });
 
 };
@@ -211,5 +209,171 @@ function getSkillInfo(dataFull,platform = 'ALL') {
     return [x,y]
 }
 
+function setSkillPlots2(dataFull) {
+
+    let x
+    let y
+    [x,y] = getSkillInfo(dataFull)
+
+    let sum = 0;
+
+    // iterate over each item in the array
+    for (i = 0; i < 5; i++ ) {
+      sum += y[i];
+    }
+
+    let y2 = []
+    for (i = 0; i < 5; i++ ) {
+        y2.push(Math.round((y[i]/sum)*270));
+      }
+
+
+    var options = {
+        series: y2,
+        chart: {
+        height: 390,
+        type: 'radialBar',
+    },
+    plotOptions: {
+        radialBar: {
+        offsetY: 0,
+        startAngle: 0,
+        endAngle: 270,
+        hollow: {
+            margin: 5,
+            size: '30%',
+            background: 'transparent',
+            image: undefined,
+        },
+        dataLabels: {
+            name: {
+            show: false,
+            },
+            value: {
+            show: false,
+            }
+        }
+        }
+    },
+    colors: ['#1ab7ea', '#0084ff', '#39539E', '#0077B5', '#0084ff'],
+    labels: x.slice(0,5),
+    legend: {
+        show: true,
+        floating: true,
+        fontSize: '16px',
+        position: 'left',
+        offsetX: 500,
+        offsetY: 15,
+        labels: {
+        useSeriesColors: true,
+        },
+        markers: {
+        size: 0
+        },
+        formatter: function(seriesName, opts) {
+        return seriesName + ":  " + Math.round((opts.w.globals.series[opts.seriesIndex]*sum)/270)
+        },
+        itemMargin: {
+        vertical: 3
+        }
+    },
+    responsive: [{
+        breakpoint: 480,
+        options: {
+        legend: {
+            show: false
+        }
+        }
+    }]
+    };
+
+    chart = new ApexCharts(document.querySelector("#skillBar"), options);
+    chart.render();
+};
+
+function resetSkillPlots2(dataFull,platform='ALL') {
+
+    // Reset bar chart
+    chart.destroy();
+    let x
+    let y
+    [x,y] = getSkillInfo(dataFull,platform)
+    let sum = 0;
+
+    // iterate over each item in the array
+    for (i = 0; i < 5; i++ ) {
+      sum += y[i];
+    }
+
+    let y2 = []
+    for (i = 0; i < 5; i++ ) {
+        y2.push(Math.round((y[i]/sum)*270));
+      }
+
+
+
+    var options = {
+        series: y2,
+        chart: {
+        height: 390,
+        type: 'radialBar',
+    },
+    plotOptions: {
+        radialBar: {
+        offsetY: 0,
+        startAngle: 0,
+        endAngle: 270,
+        hollow: {
+            margin: 5,
+            size: '30%',
+            background: 'transparent',
+            image: undefined,
+        },
+        dataLabels: {
+            name: {
+            show: false,
+            },
+            value: {
+            show: false,
+            }
+        }
+        }
+    },
+    colors: ['#1ab7ea', '#0084ff', '#39539E', '#0077B5', '#0084ff'],
+    labels: x.slice(0,5),
+    legend: {
+        show: true,
+        floating: true,
+        fontSize: '16px',
+        position: 'left',
+        offsetX: 500,
+        offsetY: 15,
+        labels: {
+        useSeriesColors: true,
+        },
+        markers: {
+        size: 0
+        },
+        formatter: function(seriesName, opts) {
+        return seriesName + ":  " + Math.round((opts.w.globals.series[opts.seriesIndex]*sum)/270)
+        },
+        itemMargin: {
+        vertical: 3
+        }
+    },
+    responsive: [{
+        breakpoint: 480,
+        options: {
+        legend: {
+            show: false
+        }
+        }
+    }]
+    };
+
+    chart = new ApexCharts(document.querySelector("#skillBar"), options);
+    chart.render();
+
+};
 
 init()
