@@ -22,10 +22,12 @@ function setPlots(dataFull,state='ALL') {
     let x
     let y
     [x,y] = getStateInfo(dataFull,state='ALL')
+    color = getColor(y)
     console.log(x)
     data = [{
         x: x,
         y: Array(x.length).fill(0),
+
         type: 'bar'}];
 
     layout = {
@@ -45,6 +47,9 @@ function setPlots(dataFull,state='ALL') {
     data = [{
         x: x,
         y: y,
+        marker:{
+            color: color
+          },
         type: 'bar'}];
     
     layout = {autosize: true,yaxis: {range:[0,y[0]*1.25]} }
@@ -58,6 +63,7 @@ function resetPlots(dataFull,state='AK') {
     let x
     let y 
     [x,y] = getStateInfo(dataFull,state)
+    color =getColor(y)
     console.log(x,y)
     data = [{
         x: x,
@@ -81,6 +87,9 @@ function resetPlots(dataFull,state='AK') {
     trace1 = {
         x: x,
         y: y,
+        marker:{
+            color: color
+          },
         type: "bar"
     };
     console.log(y[0])
@@ -196,5 +205,14 @@ let animationConfig = {
 
   }
 
+function getColor(dataArr){
 
+    let colors = ['#4e79a7','#f28e2b','#e15759','#92dce5','#59a14e','#edc949','#b07aa2','#ff9da7','#9c755f','#bab0ac']
+    return colors.slice(0,dataArr.length)
+    // color = []
+    // for (i=0;i<dataArr.length;i++){
+    //     color.push
+
+    // }
+};
 init()
