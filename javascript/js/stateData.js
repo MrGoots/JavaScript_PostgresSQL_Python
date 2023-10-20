@@ -198,12 +198,11 @@ let animationConfig = {
         // {duration: 800, easing: 'cubic-in-out'}
         // ,
         {duration: 800, easing: 'cubic-in'}
-    ]
-    ,
+    ],
 
     mode: 'afterall'
 
-  }
+};
 
 function getColor(dataArr){
 
