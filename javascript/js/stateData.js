@@ -31,17 +31,12 @@ function setPlots(dataFull,state='ALL') {
     layout = {
         xaxis: {
             automargin: true,
-            // showticklabels: false,
-            // ticklabelposition: 'inside'
             tickangle: -90
-            // ticklabeloverflow: 'allow'
-            // minallowed: 10
           },
-        // autosize: false,
-        //   margin: {
-        //     autoexpand: false
-        //   },
-        title: 'Top Roles (Up to 10)',
+          yaxis: {
+            title: 'Count'
+        },
+        title: 'Top Roles (Up to 10) per State',
         height: 750,
 
     };
@@ -72,17 +67,12 @@ function resetPlots(dataFull,state='AK') {
     layout = {
         xaxis: {
             automargin: true,
-            // showticklabels: false,
-            // ticklabelposition: 'inside'
             tickangle: -90
-            // ticklabeloverflow: 'allow'
-            // minallowed: 10
           },
-        // autosize: false,
-        //   margin: {
-        //     autoexpand: false
-        //   },
-        title: 'Top Roles (Up to 10)',
+          yaxis: {
+            title: 'Count'
+        },
+        title: 'Top Roles (Up to 10) per State',
         height: 750,
 
     };

@@ -18,42 +18,6 @@ function setSkillDropDown(data) {
         } 
         };
     };
-    // };
-
-function setSkillPlots(dataFull,platform = 'ALL') {
-
-    let x
-    let y
-    [x,y] = getSkillInfo(dataFull)
-
-    data = [{
-        x: x,
-        y: y,
-        type: 'bar'}];
-    layout = {
-        xaxis: {
-            automargin: true
-          },
-        title: 'Top Skills',
-        height: 500,
-
-    };
-    Plotly.newPlot("skillBar", data,layout);
-
-
-    };
-
-
-function resetSkillPlots(dataFull,platform='ALL') {
-
-    // Reset bar chart
-    let x
-    let y
-    [x,y] = getSkillInfo(dataFull,platform)
-    Plotly.restyle("skillBar", 'x', [x]);
-    Plotly.restyle("skillBar", 'y',[y]);
-
-};
 
 
 function platformChanged() {
@@ -63,7 +27,7 @@ function platformChanged() {
         let dropdownMenu = d3.select("#selPlatform");
         let platform = dropdownMenu.property("value");
         console.log(platform)
-        resetSkillPlots2(data,platform)
+        resetSkillPlots(data,platform)
 
 
     });
@@ -76,7 +40,7 @@ function init() {
 
         setSkillDropDown(data);
         // console.log('dd')
-        setSkillPlots2(data,'ALL')
+        setSkillPlots(data,'ALL')
           });
 
 };
@@ -115,7 +79,7 @@ function getSkillInfo(dataFull,platform = 'ALL') {
         return second[1] - first[1];
     });
 
-    // // Initialize Bar Chart Use 0
+ 
     let x = []
     let y = []
     let len = 10
@@ -130,7 +94,7 @@ function getSkillInfo(dataFull,platform = 'ALL') {
     return [x,y]
 }
 
-function setSkillPlots2(dataFull) {
+function setSkillPlots(dataFull) {
 
     let x
     let y
@@ -150,6 +114,9 @@ function setSkillPlots2(dataFull) {
 
 
     var options = {
+        title: {
+            text: 'Number of Times Skill(s) Mentioned',
+            align: 'center'},
         series: y2,
         chart: {
         height: 390,
@@ -212,7 +179,7 @@ function setSkillPlots2(dataFull) {
     chart.render();
 };
 
-function resetSkillPlots2(dataFull,platform='ALL') {
+function resetSkillPlots(dataFull,platform='ALL') {
 
     // Reset bar chart
     chart.destroy();
@@ -234,6 +201,9 @@ function resetSkillPlots2(dataFull,platform='ALL') {
 
 
     var options = {
+        title: {
+            text: 'Number of Times Skill(s) Mentioned',
+            align: 'center'},
         series: y2,
         chart: {
         height: 390,
