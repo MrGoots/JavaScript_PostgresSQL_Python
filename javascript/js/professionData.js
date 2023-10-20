@@ -34,8 +34,10 @@ function init() {
         };
         
         var data = [trace1, trace2];
+
+        let layout = {title: 'Comparison of Data Occupation Routes Over Time',yaxis:{title:'Salary'}};
         
-        Plotly.newPlot('linePlot', data);
+        Plotly.newPlot('linePlot', data,layout);
         });
 
 };
