@@ -3,7 +3,6 @@ let mapCoords = [38.09, -97.71];
 let mapZoomLevel = 4.3;
 
 // Make call to json
-// createData(wageInfo)
 let path = '../../python/resources/json_datasets/wageInfo.json'
 fetch(path).then((response) => response.json()).then(function (data) {
 
@@ -45,7 +44,6 @@ function createMap(employment){
     };
   
     // Create a new map.
-    // Edit the code to add the earthquake data to the layers.
     let myMap = L.map("map", {
       center: mapCoords,
       zoom: mapZoomLevel,
@@ -80,16 +78,13 @@ function createData(employData){
     let employment = [];
     console.log(employData)
     for (i=0;i<employData.length;i++){
-        // console.log(employData[i].STATE_ABBR)
         lat = employData[i].latitude;
-        // console.log(lat)
         long = employData[i].longitude;
         entry = L.circle([lat,long], {
         stroke: true,
         fillOpacity: 0.5,
         weight: 0.5,
         color: 'black',
-        // console.log(lat,long,),
         fillColor: wageColor(employData[i].PREVAILING_WAGE_CALCULATED),
         radius: (employData[i].LISTING_CNT ** .25 ) * 10000
         })

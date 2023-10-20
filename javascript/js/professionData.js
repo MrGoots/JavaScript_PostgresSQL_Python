@@ -1,10 +1,7 @@
 function init() {
     let path = '../../python/resources/json_datasets/test.json'
     fetch(path).then((response) => response.json()).then(function (data) {
-        console.log(data)
 
-        // let x1 = []
-        // let x2 = []
         let y1 = []
         let y2 = []
 
@@ -21,35 +18,25 @@ function init() {
         };
         // setPlots(data,'AK')
         var trace1 = {
-
             x: x,
-          
             y: y1,
-          
             type: 'lines+markers',
-
             name: 'Engineer/Architect'
           
           };
           
           
-          var trace2 = {
-          
-            x: x,
-          
-            y: y2,
-          
-            type: 'lines+markers',
-          
-            name: 'Science/Analyst'
-          };
-          
-          
-          var data = [trace1, trace2];
-          
-          
-          Plotly.newPlot('linePlot', data);
-          });
+        var trace2 = {
+        x: x,
+        y: y2,
+        type: 'lines+markers',
+        name: 'Science/Analyst'
+        };
+        
+        var data = [trace1, trace2];
+        
+        Plotly.newPlot('linePlot', data);
+        });
 
 };
 

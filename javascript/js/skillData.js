@@ -1,81 +1,3 @@
-
-
-
-// function setPlot(data){
-
-
-//     data = [{
-//         x: ,
-//         y: counts,
-//         type: 'radialBar'}];
-//     layout = {
-//         xaxis: {
-//             automargin: true
-//           },
-//         title: 'Top Roles (Up to 10)',
-//         height: 500,
-
-//     };
-
-//     : [76, 67, 61, 90],
-//     chart: {
-//     // height: 390,
-//     // type: 'radialBar',
-//     },
-//     plotOptions: {
-//     radialBar: {
-//         offsetY: 0,
-//         startAngle: 0,
-//         endAngle: 270,
-//         hollow: {
-//         margin: 5,
-//         size: '30%',
-//         background: 'transparent',
-//         image: undefined,
-//         },
-//         dataLabels: {
-//         name: {
-//             show: false,
-//         },
-//         value: {
-//             show: false,
-//         }
-//         }
-//     }
-//     },
-//     colors: ['#1ab7ea', '#0084ff', '#39539E', '#0077B5'],
-//     labels: ['Vimeo', 'Messenger', 'Facebook', 'LinkedIn'],
-//     legend: {
-//     show: true,
-//     floating: true,
-//     fontSize: '16px',
-//     position: 'left',
-//     offsetX: 160,
-//     offsetY: 15,
-//     labels: {
-//         usecountsColors: true,
-//     },
-//     markers: {
-//         size: 0
-//     },
-//     formatter: function(countsName, opts) {
-//         return countsName + ":  " + opts.w.globals.counts[opts.countsIndex]
-//     },
-//     itemMargin: {
-//         vertical: 3
-//     }
-//     },
-//     responsive: [{
-//     breakpoint: 480,
-//     options: {
-//         legend: {
-//             show: false
-//         }
-//     }
-//     }]
-// };
-
-
 function setSkillDropDown(data) {
     // let path = '../../python/resources/json_datasets/locations.json'
     // fetch(path).then((response) => response.json()).then(function (data) {
@@ -83,7 +5,6 @@ function setSkillDropDown(data) {
         // let stateName = ''
     // console.log('here')//data)
     let dMenu = d3.select("#selPlatform")
-
     let newEle = dMenu.append('option')
     newEle.text('All Platforms')
     newEle.property('value','ALL')
@@ -255,7 +176,7 @@ function setSkillPlots2(dataFull) {
         }
         }
     },
-    colors: ['#1ab7ea', '#0084ff', '#39539E', '#0077B5', '#0084ff'],
+    // colors: ['#003366', '#46769b', '#46769b', '#5e8cad', '#75a2bf'],
     labels: x.slice(0,5),
     legend: {
         show: true,
@@ -339,7 +260,7 @@ function resetSkillPlots2(dataFull,platform='ALL') {
         }
         }
     },
-    colors: ['#1ab7ea', '#0084ff', '#39539E', '#0077B5', '#0084ff'],
+    // colors: ['#003366', '#46769b', '#46769b', '#5e8cad', '#75a2bf'],
     labels: x.slice(0,5),
     legend: {
         show: true,

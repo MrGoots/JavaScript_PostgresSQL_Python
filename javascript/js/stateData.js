@@ -1,9 +1,11 @@
 function setDropDown() {
     let path = '../../python/resources/json_datasets/locations.json'
     fetch(path).then((response) => response.json()).then(function (data) {
-    // Populate dropdown with json names data
         let stateName = ''
         let dMenu = d3.select("#selDataset")
+        let newEle = dMenu.append('option')
+        newEle.text('All States')
+        newEle.property('value','ALL')
         for (i=0;i<data.length;i++) {
             stateName = data[i].name
             newEle = dMenu.append('option')
@@ -14,12 +16,12 @@ function setDropDown() {
     
 };
 
-function setPlots(dataFull,state='AK') {
+function setPlots(dataFull,state='ALL') {
 
 
     let x
     let y
-    [x,y] = getStateInfo(dataFull,state='AK')
+    [x,y] = getStateInfo(dataFull,state='ALL')
     console.log(x)
     data = [{
         x: x,
@@ -28,10 +30,19 @@ function setPlots(dataFull,state='AK') {
 
     layout = {
         xaxis: {
-            automargin: true
+            automargin: true,
+            // showticklabels: false,
+            // ticklabelposition: 'inside'
+            tickangle: -90
+            // ticklabeloverflow: 'allow'
+            // minallowed: 10
           },
+        // autosize: false,
+        //   margin: {
+        //     autoexpand: false
+        //   },
         title: 'Top Roles (Up to 10)',
-        height: 500,
+        height: 750,
 
     };
     Plotly.newPlot("stateBar", data,layout);
@@ -44,7 +55,6 @@ function setPlots(dataFull,state='AK') {
     layout = {autosize: true,yaxis: {range:[0,y[0]*1.25]} }
 
     Plotly.animate("stateBar", { data: data,layout:layout }, { ...animationConfig });
-
     };
 
 
@@ -53,16 +63,42 @@ function resetPlots(dataFull,state='AK') {
     let x
     let y 
     [x,y] = getStateInfo(dataFull,state)
+    console.log(x,y)
+    data = [{
+        x: x,
+        y: Array(x.length).fill(0),
+        type: 'bar'}];
+
+    layout = {
+        xaxis: {
+            automargin: true,
+            // showticklabels: false,
+            // ticklabelposition: 'inside'
+            tickangle: -90
+            // ticklabeloverflow: 'allow'
+            // minallowed: 10
+          },
+        // autosize: false,
+        //   margin: {
+        //     autoexpand: false
+        //   },
+        title: 'Top Roles (Up to 10)',
+        height: 750,
+
+    };
+    Plotly.newPlot("stateBar", data,layout);
+
     trace1 = {
         x: x,
         y: y,
         type: "bar"
     };
     console.log(y[0])
-    layout = {autosize: true,yaxis: {range:[0,y[0]*1.25]} }
+    layout = {yaxis: {range:[0,y[0]*1.25]} }
 
     let finalData = [trace1];
     Plotly.animate("stateBar", { data: finalData,layout:layout }, { ...animationConfig });
+
 
 };
 
@@ -92,13 +128,23 @@ function init() {
 
 function getStateInfo(dataFull,state) {
     let stateDict = {}
+
+    if (state === 'ALL') {
+        for (i=0;i<dataFull.length;i++) {
+            if (!(dataFull[i].SOC_TITLE in stateDict)) {
+                stateDict[dataFull[i].SOC_TITLE] = 0
+            };
+            stateDict[dataFull[i].SOC_TITLE]++
+            }
+    } else {
+
     for (i=0;i<dataFull.length;i++) {
         if (dataFull[i].EMPLOYER_STATE === state) {
             if (!(dataFull[i].SOC_TITLE in stateDict)) {
                 stateDict[dataFull[i].SOC_TITLE] = 0
             };
-            stateDict[dataFull[i].SOC_TITLE] ++
-        };
+            stateDict[dataFull[i].SOC_TITLE]++
+        };};
 
     };
 
@@ -116,13 +162,26 @@ function getStateInfo(dataFull,state) {
     let x = []
     let y = []
     let len = 10
+    let remainder = 0
+    
     if (stateSort.length < 10) {
+        remainder = len - stateSort.length
         len = stateSort.length
+        
     }
+    console.log(remainder)
     for (i=0;i<len;i++){
         x.push(stateSort[i][0])
         y.push(stateSort[i][1])
     };
+
+    // console.log(' '*5)
+    // if (remainder > 0) {
+    //     for (i=0;i<remainder;i++){
+    //         x.push(i)
+    //         y.push(0)
+    //     };
+    // };
     
     return [x,y]
 };
@@ -131,20 +190,17 @@ function getStateInfo(dataFull,state) {
 let animationConfig = {
 
     frame: [
-
-      {duration: 1500},
-
-      {duration: 1500},
-
+        {duration: 1000}
+        // ,
+        // {duration: 1500},
     ],
 
     transition: [
-
-      {duration: 800, easing: 'cubic-in'},
-
-      {duration: 800, easing: 'cubic-out'},
-
-    ],
+        // {duration: 800, easing: 'cubic-in-out'}
+        // ,
+        {duration: 800, easing: 'cubic-in'}
+    ]
+    ,
 
     mode: 'afterall'
 
