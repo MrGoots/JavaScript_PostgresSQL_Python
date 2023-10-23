@@ -6,7 +6,7 @@ let mapZoomLevel = 4.3;
 // Make call to json
 let path = '../../python/resources/json_datasets/wageInfo.json'
 // Use if fecth does not work (CORS Error)
-path = 'https://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/MrGoots/Project_3/main/python/resources/json_datasets/wageInfo.json'
+path = 'https://raw.githubusercontent.com/MrGoots/Project_3/main/python/resources/json_datasets/wageInfo.json'
 
 fetch(path).then((response) => response.json()).then(function(data) {
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

@@ -23,7 +23,7 @@ function setSkillDropDown(data) {
 function platformChanged() {
   let path = '../../python/resources/json_datasets/gsearch.json'
   // Use if fecth does not work (CORS Error)
-  path = 'https://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/MrGoots/Project_3/main/python/resources/json_datasets/gsearch.json'
+  path = 'https://raw.githubusercontent.com/MrGoots/Project_3/main/python/resources/json_datasets/gsearch.json'
   fetch(path).then((response) => response.json()).then(function(data) {
 
     let dropdownMenu = d3.select("#selPlatform");
@@ -39,7 +39,7 @@ function platformChanged() {
 function init() {
   let path = '../../python/resources/json_datasets/gsearch.json'
   // Use if fecth does not work (CORS Error)
-  path = 'https://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/MrGoots/Project_3/main/python/resources/json_datasets/gsearch.json'
+  path = 'https://raw.githubusercontent.com/MrGoots/Project_3/main/python/resources/json_datasets/gsearch.json'
   fetch(path).then((response) => response.json()).then(function(data) {
 
     setSkillDropDown(data);

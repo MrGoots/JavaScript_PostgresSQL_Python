@@ -1,7 +1,7 @@
 function setDropDown() {
     let path = '../../python/resources/json_datasets/locations.json'
     // Use if fecth does not work (CORS Error)
-    path = 'https://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/MrGoots/Project_3/main/python/resources/json_datasets/locations.json'
+    path = 'https://raw.githubusercontent.com/MrGoots/Project_3/main/python/resources/json_datasets/locations.json'
     fetch(path).then((response) => response.json()).then(function (data) {
         let stateName = ''
         let dMenu = d3.select("#selDataset")
@@ -107,7 +107,7 @@ function resetPlots(dataFull,state='AK') {
 function optionChanged() {
     let path = '../../python/resources/json_datasets/jobTitle.json'
     // Use if fecth does not work (CORS Error)
-    path = 'https://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/MrGoots/Project_3/main/python/resources/json_datasets/jobTitle.json'
+    path = 'https://raw.githubusercontent.com/MrGoots/Project_3/main/python/resources/json_datasets/jobTitle.json'
     fetch(path).then((response) => response.json()).then(function (data) {
 
         let dropdownMenu = d3.select("#selDataset");
@@ -122,7 +122,7 @@ function optionChanged() {
 function init() {
     let path = '../../python/resources/json_datasets/jobTitle.json'
     // Use if fecth does not work (CORS Error)
-    path = 'https://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/MrGoots/Project_3/main/python/resources/json_datasets/jobTitle.json'
+    path = 'https://raw.githubusercontent.com/MrGoots/Project_3/main/python/resources/json_datasets/jobTitle.json'
     fetch(path).then((response) => response.json()).then(function (data) {
         // console.log(data)
         setDropDown();
