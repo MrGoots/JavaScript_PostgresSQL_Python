@@ -1,5 +1,8 @@
 function init() {
     let path = '../../python/resources/json_datasets/test.json'
+
+    // Use if fecth does not work (CORS Error)
+    path = 'https://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/MrGoots/Project_3/main/python/resources/json_datasets/test.json'
     fetch(path).then((response) => response.json()).then(function(data) {
   
       let y1 = []
@@ -48,3 +51,4 @@ function init() {
   };
   
   init()
+

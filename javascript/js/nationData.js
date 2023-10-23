@@ -2,10 +2,13 @@
 let mapCoords = [38.09, -97.71];
 let mapZoomLevel = 4.3;
 
+
 // Make call to json
 let path = '../../python/resources/json_datasets/wageInfo.json'
-fetch(path).then((response) => response.json()).then(function(data) {
+// Use if fecth does not work (CORS Error)
+path = 'https://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/MrGoots/Project_3/main/python/resources/json_datasets/wageInfo.json'
 
+fetch(path).then((response) => response.json()).then(function(data) {
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   });
