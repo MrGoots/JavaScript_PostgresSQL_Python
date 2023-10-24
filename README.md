@@ -29,6 +29,7 @@
 * A combination of web/SQL scraping and Leaflet or Plotly
 * Active RDS Database - AWS 
 * PostgreSQL
+* ApexCharts javascript library (not used in the course)
 
 
 ### Team:
